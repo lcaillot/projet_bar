@@ -2,12 +2,34 @@
 
 import sys,time,re
 
+class Accessoire(list): # ici pas besoin d'implémenter append et pop car on hérite de la classe list qui a déjà ces méthodes
+
+    def __init__ (self,liste=None):
+        if liste is None:
+            liste=[]
+        super().__init__(liste)
+
+# ou :
+
+""" class Accessoire(): # ATTENTION ici problème avec len(self)
+    def __init__ (self,liste=None):
+        if liste is None:
+            liste=[]
+        self.commande = liste
+
+    # nécessaire car on ne peut pas faire self.append ou .pop sur un objet, seulement sur une liste (on n'hérite pas de list ici)
+    def append(self,element):
+        return self.commande.append(element)
+    
+    def pop(self):
+        return self.commande.pop() """
+
 class Pic(Accessoire):
     """ 
-    Un pic contient les commandes Ã  fabriquer.
+    Un pic contient les commandes à  fabriquer.
     Il peut embrocher un post-it contenant une commande 
     (une liste de consommations) par-dessus les post-it 
-    dÃ©jÃ  prÃ©sents et libÃ©rer le dernier embrochÃ©. 
+    déjà  présents et libérer le dernier embroché. 
     """
 
     def embrocher(self,postit):
@@ -27,23 +49,34 @@ class Bar(Accessoire):
     """
 
     def recevoir(self,commande):
-        ...
+        self.append(commande)
 
     def evacuer(self):
-        ...
+        if len(self)>0:
+            commande=self.pop()
+            return commande
+        else:
+            return None
 
-class Serveur(EmployÃ©):
+class Employé(Pic,Bar):
+    def __init__(self,pic,bar):
+        self.pic=pic
+        self.bar=bar
+        self.step=0 # pour le Serveur --> on commence par prendre la commande
+        print("prêt pour le service")
+
+class Serveur(Employé):
     def __init__(self,pic,bar):
         super().__init__(pic,bar)
 
     def prendre_commande(self):
         while True:
-            commande = input(f"{self.__class__.__name__}: prÃªt pour prendre une commande : ")
+            commande = input(f"{self.__class__.__name__}: prêt pour prendre une commande : ")
             if not commande:
                 break
             print(f"{self.__class__.__name__}: j'ai la commande '{commande}'")
             commande = commande.split(",")
-            print(f"{self.__class__.__name__}: j'Ã©cris sur le post-it '{commande}'")
+            print(f"{self.__class__.__name__}: j'écris sur le post-it '{commande}'")
             self.pic.embrocher(commande)
 
     def servir(self):
@@ -64,7 +97,7 @@ class Serveur(EmployÃ©):
             self.step += 1
             self.servir()
 
-class Barman(EmployÃ©):
+class Barman(Employé):
     def __init__(self,pic,bar):
         super().__init__(pic,bar)
 
