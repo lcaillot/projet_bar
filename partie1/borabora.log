@@ -1,0 +1,25 @@
+
+---
+[bob] prêt pour le service
+[bob] je commence la fabrication de '['tequila sunrise', 'margarita', 'cucaracha']'
+[bob] je prépare tequila sunrise
+[bob] je prépare margarita
+[bob] je prépare cucaracha
+[bob] la commande ['tequila sunrise', 'margarita', 'cucaracha'] est prête
+[bob] je commence la fabrication de '['bloody mary', 'moscow mule', 'caÃ¯piroska', 'blue lagoon', 'french love', 'greyhound', 'cosmopolitan']'
+[bob] je prépare bloody mary
+[bob] je prépare moscow mule
+[bob] je prépare caÃ¯piroska
+[bob] je prépare blue lagoon
+[bob] je prépare french love
+[bob] je prépare greyhound
+[bob] je prépare cosmopolitan
+[bob] la commande ['bloody mary', 'moscow mule', 'caÃ¯piroska', 'blue lagoon', 'french love', 'greyhound', 'cosmopolitan'] est prête
+[bob] je commence la fabrication de '['planteur', 'piÃ±a colada', 'coco punch', 'mojito', 'daiquiri', 'ti-punch']'
+[bob] je prépare planteur
+[bob] je prépare piÃ±a colada
+[bob] je prépare coco punch
+[bob] je prépare mojito
+[bob] je prépare daiquiri
+[bob] je prépare ti-punch
+[bob] la commande ['planteur', 'piÃ±a colada', 'coco punch', 'mojito', 'daiquiri', 'ti-punch'] est prête
